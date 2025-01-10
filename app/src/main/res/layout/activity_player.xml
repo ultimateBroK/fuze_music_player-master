@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playerContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity.PlayerActivity">
+
+    <!-- Layout chứa các nút trên cùng -->
+    <LinearLayout
+        android:id="@+id/layout_top_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="start">
+
+        <!-- Nút quay lại -->
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/arrow_back_24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back_button_desc" />
+    </LinearLayout>
+
+    <!-- Layout chứa hình ảnh bài hát -->
+    <RelativeLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_below="@id/layout_top_btn">
+
+        <!-- Hình nền gradient -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imgGradient"
+            android:background="@drawable/gradient_background"
+            android:layout_alignParentTop="true" />
+
+        <!-- Hình ảnh bìa của bài hát -->
+        <ImageView
+            android:id="@+id/cover_art"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_centerInParent="true"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/music_note" />
+    </RelativeLayout>
+
+    <!-- Layout chứa thời lượng bài hát -->
+    <LinearLayout
+        android:id="@+id/song_duration"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/card"
+        android:orientation="horizontal">
+
+        <!-- Thời lượng đã phát -->
+        <TextView
+            android:id="@+id/duration_played"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:text="@string/song_start"
+            android:textColor="@color/white" />
+
+        <!-- SeekBar để điều chỉnh vị trí phát nhạc -->
+        <SeekBar
+            android:id="@+id/play_status"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Thời lượng tổng của bài hát -->
+        <TextView
+            android:id="@+id/duration_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:text="@string/song_end"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- Layout chứa thông tin bài hát -->
+    <LinearLayout
+        android:id="@+id/song_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/song_duration"
+        android:orientation="vertical">
+
+        <!-- Tên bài hát -->
+        <TextView
+            android:id="@+id/song_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@string/song_name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <!-- Tên nghệ sĩ -->
+        <TextView
+            android:id="@+id/song_artist"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="@string/artist_name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Layout chứa các nút điều khiển nhạc -->
+    <LinearLayout
+        android:id="@+id/song_controller"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@id/song_info"
+        android:orientation="horizontal">
+
+        <!-- Nút lặp lại -->
+        <ImageButton
+            android:id="@+id/repeat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBackground"
+            app:srcCompat="@drawable/repeat_24dp"
+            android:contentDescription="@string/repeat_button_desc" />
+
+        <!-- Nút quay lại bài hát trước -->
+        <ImageButton
+            android:id="@+id/skip_previous"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBackground"
+            app:srcCompat="@drawable/skip_previous_24dp"
+            android:contentDescription="@string/skip_previous_button_desc" />
+
+        <!-- Nút phát/tạm dừng -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/play_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/gradient_background"
+            app:backgroundTint="@color/white"
+            app:srcCompat="@drawable/play_arrow_40dp"
+            android:contentDescription="@string/play_pause_button_desc" />
+
+        <!-- Nút chuyển tới bài hát tiếp theo -->
+        <ImageButton
+            android:id="@+id/skip_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBackground"
+            app:srcCompat="@drawable/skip_next_24dp"
+            android:contentDescription="@string/skip_next_button_desc" />
+
+        <!-- Nút xáo trộn danh sách phát -->
+        <ImageButton
+            android:id="@+id/shuffle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBackground"
+            app:srcCompat="@drawable/shuffle_24dp"
+            android:contentDescription="@string/shuffle_button_desc" />
+    </LinearLayout>
+
+    <!-- Layout chứa các nút dưới cùng -->
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/song_controller"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <!-- Nút mở danh sách phát nhạc -->
+        <ImageButton
+            android:id="@+id/music_queue"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            app:srcCompat="@drawable/queue_music_24dp"
+            android:contentDescription="@string/music_queue_button_desc" />
+    </LinearLayout>
+</RelativeLayout>

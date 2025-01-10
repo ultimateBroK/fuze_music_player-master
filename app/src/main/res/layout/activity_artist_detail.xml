@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <!-- Nút quay lại -->
+    <LinearLayout
+        android:id="@+id/layout_top_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back_button_desc"
+            android:src="@drawable/arrow_back_24dp" />
+    </LinearLayout>
+
+    <!-- Hình ảnh nghệ sĩ -->
+    <ImageView
+        android:id="@+id/artist_art"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round"
+        android:contentDescription="@string/album_art_desc" />
+
+    <!-- Tên nghệ sĩ -->
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/artist_name"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:padding="10dp" />
+
+    <!-- Danh sách các bài hát của nghệ sĩ -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/songs_List"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

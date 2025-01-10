@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activity.MainActivity">
+
+    <!-- Layout chứa nội dung tiêu đề -->
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Nút tìm kiếm -->
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorBackground"
+            android:src="@drawable/search_24dp"
+            android:contentDescription="@string/search_button_desc" />
+
+        <!-- Tiêu đề chính -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!-- Nút thêm tùy chọn -->
+        <ImageButton
+            android:id="@+id/more_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorBackground"
+            android:src="@drawable/more_vert_24dp"
+            android:contentDescription="@string/more_button_desc" />
+    </LinearLayout>
+
+    <!-- ViewPager2 cho các fragment -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:layout_constraintBottom_toTopOf="@id/playing_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Layout trạng thái đang phát nhạc -->
+    <RelativeLayout
+        android:id="@+id/playing_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/colorPlayerStatus"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Hình ảnh bìa của bài hát đang phát -->
+        <ImageView
+            android:id="@+id/playing_cover_art"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/music_note"
+            android:clickable="false"
+            android:focusable="false" />
+
+        <!-- Thông tin bài hát đang phát -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@id/playing_cover_art"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:clickable="false"
+            android:focusable="false">
+
+            <!-- Tên bài hát đang phát -->
+            <TextView
+                android:id="@+id/playing_song_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/song_name"
+                android:textColor="@color/white"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <!-- Tên nghệ sĩ của bài hát đang phát -->
+            <TextView
+                android:id="@+id/playing_artist_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/playing_artist_name"
+                android:textColor="@color/white"
+                android:clickable="false"
+                android:focusable="false" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- TabLayout cho các tab -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        app:tabBackground="@color/colorTabBackground"
+        app:tabGravity="fill"
+        app:tabIconTint="@color/colorPrimary"
+        app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabIndicatorColor="@color/colorTab"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="stretch"
+        app:tabMode="fixed"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/for_you"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:icon="@drawable/face_24dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/songs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:icon="@drawable/music_note_24dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/albums"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:icon="@drawable/album_24dp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/artists"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:icon="@drawable/artist_24dp" />
+    </com.google.android.material.tabs.TabLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

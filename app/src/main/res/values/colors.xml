@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#A8F2CF</color>
+    <color name="colorTab">#2B3333</color>
+    <color name="colorTabBackground">#18191E</color>
+    <color name="colorBackground">#FF000000</color>
+    <color name="colorAlbumBackground">#00FFBB</color>
+    <color name="colorPlayerStatus">#0D0C0C</color>
+    <color name="highlight_color">#1B2529</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
